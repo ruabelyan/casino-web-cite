@@ -1,0 +1,98 @@
+{
+	"name": "casino",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@ckeditor/ckeditor5-build-classic": "^31.1.0",
+		"@ckeditor/ckeditor5-react": "^3.0.3",
+		"@ckeditor/ckeditor5-upload": "^31.1.0",
+		"@react-tiny-grid/core": "^0.1.7",
+		"@testing-library/jest-dom": "^5.16.1",
+		"@testing-library/react": "^12.1.2",
+		"@testing-library/user-event": "^13.5.0",
+		"@y0c/react-datepicker": "^1.0.4",
+		"axios": "^0.24.0",
+		"classnames": "^2.3.1",
+		"connected-react-router": "^6.9.2",
+		"date-fns": "^2.28.0",
+		"history": "^4.9.0",
+		"react": "^17.0.2",
+		"react-datepicker": "^4.5.0",
+		"react-dom": "^17.0.2",
+		"react-draft-wysiwyg": "^1.14.7",
+		"react-redux": "^7.2.6",
+		"react-router": "^6.2.1",
+		"react-router-dom": "^6.2.1",
+		"react-scripts": "5.0.0",
+		"redux": "^4.1.2",
+		"redux-thunk": "^2.4.1",
+		"reselect": "^4.1.5",
+		"reset-css": "^5.0.1",
+		"swiper": "^7.4.1",
+		"web-vitals": "^2.1.2"
+	},
+	"devDependencies": {
+		"concurrently": "^7.0.0",
+		"cross-env": "^7.0.3",
+		"http-server": "^14.0.0",
+		"husky": "^7.0.4",
+		"json-server": "^0.17.0",
+		"lint-staged": "^12.1.5",
+		"node-sass": "^7.0.1",
+		"prettier": "^2.5.1",
+		"react-app-rewire-alias": "^1.1.7",
+		"react-app-rewired": "^2.1.11",
+		"redux-devtools-extension": "^2.13.9",
+		"rimraf": "^3.0.2",
+		"sass-migrator": "^1.5.3",
+		"stylelint": "^14.2.0",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-recess-order": "^3.0.0",
+		"stylelint-config-standard": "^24.0.0",
+		"stylelint-config-standard-scss": "^3.0.0",
+		"stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+		"stylelint-order": "^5.0.0",
+		"stylelint-prettier": "^2.0.0",
+		"stylelint-scss": "^4.1.0"
+	},
+	"scripts": {
+		"start": "npx concurrently \"react-app-rewired start\"",
+		"build": "react-app-rewired build",
+		"test": "react-app-rewired test",
+		"eject": "react-app-rewired eject",
+		"sass": "node ./node_modules/sass/sass.js",
+		"server": "npx http-server build -p 8000",
+		"remove": "npx rimraf build dist",
+		"data": "npx json-server -w data/blog.json -p 4001",
+		"sass-migrator": "sass-migrator module --verbose --migrate-deps ./src/sass/main.css",
+		"sass:watch": "npx concurrently \"npm run sass -- --watch ./src/sass/main.scss ./src/sass/main.css\""
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.(css|scss|sass|less|styl)": [
+			"stylelint --color --fix"
+		]
+	}
+}

@@ -1,0 +1,54 @@
+@import "mixins/font";
+@import "mixins/line-height-crop";
+
+// @import "mixins/fluid";
+@import "mixins/flex-alignment";
+@import "mixins/margin";
+@import "mixins/padding";
+@import "mixins/overflow";
+@import "mixins/position";
+@import "mixins/scroll";
+@import "mixins/size";
+@import "mixins/transition";
+@import "mixins/truncate-txt";
+@import "mixins/placeholder";
+@import "mixins/smooth-scrollbar";
+@import "mixins/no-shift";
+
+@mixin gradient($params) {
+	background: linear-gradient($params);
+}
+
+@mixin shadow($params) {
+	box-shadow: $params;
+}
+
+@mixin flex(
+	$justify-content: null,
+	$align-items: null,
+	$direction: null,
+	$flex-wrap: null
+) {
+	display: flex;
+	flex-direction: $direction;
+	flex-wrap: $flex-wrap;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}
+
+@mixin center-absolute {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin center-flex {
+	@include flex(center, center);
+}
+
+@mixin media($media-size) {
+	@media (max-width: $media-size) {
+		@content;
+	}
+}

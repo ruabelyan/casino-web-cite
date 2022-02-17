@@ -1,0 +1,46 @@
+/* stylelint-disable */
+@mixin font-face($url, $font-family, $font-weight, $font-style) {
+	/* prettier-ignore */
+	@font-face {
+		src: url($url + ".woff2") format("woff2"),
+							url($url + ".woff") format("woff");
+		font-family: $font-family;
+		font-weight: $font-weight;
+		font-style: $font-style;
+		font-display: block;
+	}
+}
+
+@mixin font-face-list($font-family, $font-folder, $font-types) {
+	@each $key, $value in $font-types {
+		$src: "../../assets/fonts/" + $font-folder + "/" + $value;
+		/* prettier-ignore */
+		@font-face {
+			src: url($src + ".woff2") format("woff2");
+			src: url($src + ".woff") format("woff"),
+				url($src + ".eot"),
+				url($src + ".eot") format("embedded-opentype"),
+				url($src + ".ttf") format("truetype"),
+				url($src + ".otf") format("opentype"),
+				url($src + ".svg") format("svg");
+			font-family: unquote($font-family);
+			font-weight: $key;
+			font-display: block;
+		}
+	}
+}
+/* stylelint-enable */
+
+@mixin font(
+	$font-size: null,
+	$font-wight: null,
+	$line-height: null,
+	$font-family: null,
+	$letter-spacing: null
+) {
+	font-family: $font-family;
+	font-weight: $font-wight;
+	font-size: crem($font-size);
+	line-height: crem($line-height);
+	letter-spacing: crem($letter-spacing);
+}

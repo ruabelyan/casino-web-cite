@@ -1,0 +1,78 @@
+@use "sass:map";
+@use "sass:string";
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+@use "sass:selector";
+@use "sass:color";
+
+// @import "../../node_modules/reset-css/sass/reset";
+// @import "abstracts/base";
+@import "abstracts/variables-functions";
+@import "abstracts/mixins";
+
+// html
+html {
+	font-size: get-prop($global, "html-font-size");
+}
+
+// body
+body {
+	font-family: get-prop($font-family, "inter");
+	font-weight: 400;
+	word-break: break-word;
+	hyphens: auto;
+	cursor: default;
+}
+
+// ::selection
+::selection {
+	color: get-prop($global, "selection-text-color");
+	background: get-prop($global, "selection-bg-color");
+}
+
+// .wrapper
+.wrapper {
+	display: block;
+	min-width: get-prop($global, "min-width");
+}
+
+@font-face {
+	src: url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-100.woff2")
+			format("woff2"),
+		url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-100.woff")
+			format("woff");
+	font-family: "museo-sans";
+	font-weight: 100;
+	font-display: block;
+}
+
+@font-face {
+	src: url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-300.woff2")
+			format("woff2"),
+		url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-300.woff")
+			format("woff");
+	font-family: "museo-sans";
+	font-weight: 300;
+	font-display: block;
+}
+
+@font-face {
+	src: url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-500.woff2")
+			format("woff2"),
+		url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-500.woff")
+			format("woff");
+	font-family: "museo-sans";
+	font-weight: 500;
+	font-display: block;
+}
+
+@font-face {
+	src: url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-700.woff2")
+			format("woff2"),
+		url("../../public/assets/fonts/museo-sans/MuseoSansCyrl-700.woff")
+			format("woff");
+	font-family: "museo-sans";
+	font-weight: 700;
+	font-display: block;
+}
